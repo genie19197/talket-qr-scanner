@@ -37,7 +37,7 @@ const readText = (ourText) => {
   const utterThis = new SpeechSynthesisUtterance();
   const synth = window.speechSynthesis;
   utterThis.text = ourText;
-  utterThis.rate = 0.7;
+  utterThis.rate = 0.9;
   synth.speak(utterThis);
 };
 
