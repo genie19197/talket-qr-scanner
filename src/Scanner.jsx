@@ -117,9 +117,6 @@ export default function Scanner() {
       <div id="qrvideo-container" class="center-container">
         <video id="qrvideo"></video>
       </div>
-      <br />
-      <div class="major-text">{data}님, 안녕하세요!</div>
-      <div class="minor-text">{usage}</div>
     </div>
   );
 }
