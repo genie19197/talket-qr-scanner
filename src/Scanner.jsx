@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import QrScanner from "qr-scanner";
 
 let isUsed = {
-  genie: 0
+  genie: 0,
 };
 const incrementUsage = (name) => {
   let count = 0;
@@ -39,6 +39,7 @@ const readText = (ourText) => {
   utterThis.text = ourText;
   utterThis.rate = 0.9;
   utterThis.lang = "ko-KR";
+  synth.cancel();
   synth.speak(utterThis);
 };
 
@@ -92,7 +93,7 @@ export default function Scanner() {
             console.log("not decoded");
           },
           maxScansPerSecond: 1,
-          highlightScanRegion: true
+          highlightScanRegion: true,
           // highlightCodeOutline: true
 
           /* your options or returnDetailedScanResult: true if you're not specifying any other options */
@@ -105,6 +106,7 @@ export default function Scanner() {
   return (
     <div
       onClick={async () => {
+        readText("초기화 완료");
         if (cameras.length > 0) {
           let _nextIndex = currentCameraIndex + 1;
           if (_nextIndex === cameras.length) {
@@ -113,7 +115,6 @@ export default function Scanner() {
           currentCameraIndex = _nextIndex;
           await qrScanner.setCamera(cameras[_nextIndex].id);
         }
-        readText("카메라 변경");
       }}
     >
       <div id="qrvideo-container" class="center-container">
