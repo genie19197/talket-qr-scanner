@@ -31,7 +31,7 @@ const isSpeechPossible = () => {
 };
 
 const readText = (ourText) => {
-  if (!isSpeechPossible) {
+  if (!isSpeechPossible()) {
     return;
   }
   const utterThis = new SpeechSynthesisUtterance();
