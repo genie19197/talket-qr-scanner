@@ -79,8 +79,7 @@ export default function Scanner() {
 
           incrementUsage(nftname);
           setUsage(getUsageCount(nftname));
-          // const readMessage = `${nftname}님 안녕하세요.`;
-          const readMessage = `Hello`;
+          const readMessage = `${nftname}님 안녕하세요.`;
           readText(readMessage);
           setData(nftname);
           setTimeout(() => {
