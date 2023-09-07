@@ -38,6 +38,7 @@ const readText = (ourText) => {
   const synth = window.speechSynthesis;
   utterThis.text = ourText;
   utterThis.rate = 0.9;
+  console.log(synth.getVoices().length);
   synth.speak(utterThis);
 };
 
