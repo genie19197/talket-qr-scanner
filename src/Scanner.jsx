@@ -38,7 +38,6 @@ const readText = (ourText) => {
   const synth = window.speechSynthesis;
   utterThis.text = ourText;
   utterThis.rate = 0.9;
-  console.log(synth.getVoices().length);
   synth.speak(utterThis);
 };
 
@@ -80,7 +79,8 @@ export default function Scanner() {
 
           incrementUsage(nftname);
           setUsage(getUsageCount(nftname));
-          const readMessage = `${nftname}님 안녕하세요.`;
+          // const readMessage = `${nftname}님 안녕하세요.`;
+          const readMessage = `Hello`;
           readText(readMessage);
           setData(nftname);
           setTimeout(() => {
@@ -113,6 +113,7 @@ export default function Scanner() {
           currentCameraIndex = _nextIndex;
           await qrScanner.setCamera(cameras[_nextIndex].id);
         }
+        readText("카메라 변경");
       }}
     >
       <div id="qrvideo-container" class="center-container">
